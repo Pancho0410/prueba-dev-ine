@@ -1,16 +1,33 @@
 ---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageShell from "@/components/astro/PageShell.astro";
+import SidebarShell from "@/components/astro/SidebarShell.astro";
 
+import HelloWidget from "@/components/react/widgets/HelloWidget";
+import { AnnouncementsWidget } from "@/components/react/widgets/AnnouncementsWidget";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="INE · Prueba Frontend">
+  <PageShell>
+    <SidebarShell
+      slot="sidebar"
+      class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+    >
+      <h2 class="text-sm font-semibold text-slate-900">Filtros</h2>
+      <p class="mt-1 text-xs text-slate-500">
+        Estructura base para que el candidato cree componentes.
+      </p>
+    </SidebarShell>
+
+    <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <HelloWidget
+        client:load
+        name="Programador Jr."
+        message="Hola, bienvenido a la prueba de desarrollo para el INE"
+        greetTemplate="Buena suerte en tu prueba {name}"
+      />
+    </div>
+
+    <AnnouncementsWidget client:load />
+  </PageShell>
+</BaseLayout>

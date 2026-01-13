@@ -1,0 +1,9 @@
+<main class="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-6 md:flex-row">
+  <aside class="w-full md:w-72">
+    <slot name="sidebar" />
+  </aside>
+
+  <section class="flex w-full flex-col gap-4">
+    <slot />
+  </section>
+</main>

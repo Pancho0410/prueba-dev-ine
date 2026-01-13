@@ -1,0 +1,34 @@
+[
+  {
+    "id": "a-001",
+    "title": "Actualización del portal de datos",
+    "summary": "Se habilitan mejoras visuales y componentes reutilizables para el frontend.",
+    "category": "comunicados",
+    "tags": ["UI", "React", "Accesibilidad"],
+    "dateLabel": "Hoy"
+  },
+  {
+    "id": "a-002",
+    "title": "Convocatoria: mejoras en componentes",
+    "summary": "Crear componentes UI (Button, Input, Card) y hooks para filtros y búsqueda.",
+    "category": "convocatorias",
+    "tags": ["TypeScript", "Hooks", "Reutilización"],
+    "dateLabel": "Ayer"
+  },
+  {
+    "id": "a-003",
+    "title": "Anuncio general: mantenimiento programado",
+    "summary": "Se realizará mantenimiento programado. El servicio podría estar intermitente.",
+    "category": "general",
+    "tags": ["Infra", "Aviso"],
+    "dateLabel": "Esta semana"
+  },
+  {
+    "id": "a-004",
+    "title": "Anuncio general: capacitación interna",
+    "summary": "Se realizará una capacitación interna referente a los sistemas institucionales.",
+    "category": "general",
+    "tags": ["Infra", "Aviso"],
+    "dateLabel": "Hoy"
+  }
+]
