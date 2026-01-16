@@ -53,7 +53,13 @@ function categoryConfig(category: Announcement["category"]) {
  * - Las etiquetas se muestran como badges con variante "info"
  * - Utiliza componentes reutilizables Badge y Button del sistema de diseño
  */
-export default function AnnouncementCard({ item }: { item: Announcement }) {
+
+interface AnnouncementCardProps {
+  item: Announcement;
+  onOpen: (item: Announcement) => void;
+};
+
+export default function AnnouncementCard({ item, onOpen }: AnnouncementCardProps) {
   const category = categoryConfig(item.category);
 
   return (
@@ -81,7 +87,7 @@ export default function AnnouncementCard({ item }: { item: Announcement }) {
       </div>
 
       <div className="mt-4 flex items-center justify-end gap-2">
-        <Button variant="secondary">Ver detalle</Button>
+        <Button variant="secondary" onClick={() => onOpen(item)} >Ver detalle</Button>
         <Button variant="primary">Acción</Button>
       </div>
     </article>

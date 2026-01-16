@@ -4,6 +4,7 @@ import type { Announcement, Category } from "@/types/announcement.types";
 import { SearchBar } from "@/components/react/features/announcements/SearchBar";
 import { Filters } from "@/components/react/features/announcements/Filters";
 import { AnnouncementsFeed } from "@/components/react/features/announcements/AnnouncementsFeed";
+import AnnouncementModal from "../ui/AnnouncementModa";
 
 /**
  * Widget interactivo que combina búsqueda, filtros y visualización de anuncios.
@@ -27,6 +28,7 @@ export function AnnouncementsWidget() {
 
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<Category>("all");
+  const [itemSelected, setItemSelected] = useState<Announcement | null>(null);
 
   const items = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -50,7 +52,9 @@ export function AnnouncementsWidget() {
         </div>
       </div>
 
-      <AnnouncementsFeed items={items} />
+      <AnnouncementsFeed items={items} onSelectItem={setItemSelected} />
+
+      <AnnouncementModal isOpen={!!itemSelected} onClose={() => setItemSelected(null)} item={itemSelected} />
     </div>
   );
 }

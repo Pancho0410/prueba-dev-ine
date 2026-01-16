@@ -6,6 +6,7 @@ import AnnouncementCard from "@/components/react/features/announcements/Announce
  */
 type AnnouncementsFeedProps = {
   items: Announcement[];
+  onSelectItem: (item: Announcement) => void;
 };
 
 /**
@@ -16,7 +17,7 @@ type AnnouncementsFeedProps = {
  * @param {Announcement[]} props.items - Array de anuncios a mostrar
  * @returns {JSX.Element} Una cuadrícula de tarjetas o un mensaje de lista vacía
  */
-export function AnnouncementsFeed({ items }: AnnouncementsFeedProps) {
+export function AnnouncementsFeed({ items, onSelectItem }: AnnouncementsFeedProps) {
   if (items.length === 0) {
     return (
       <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center text-sm text-slate-600 shadow-sm">
@@ -28,7 +29,7 @@ export function AnnouncementsFeed({ items }: AnnouncementsFeedProps) {
   return (
     <div className="grid gap-4 lg:grid-cols-2">
       {items.map((item) => (
-        <AnnouncementCard key={item.id} item={item} />
+        <AnnouncementCard key={item.id} item={item} onOpen={onSelectItem} />
       ))}
     </div>
   );
