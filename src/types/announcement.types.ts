@@ -3,6 +3,12 @@
  */
 export type Category = "all" | "general" | "convocatorias" | "comunicados";
 
+export interface Achievement {
+  name: string;
+  difficulty: string;
+  potential: string;
+}
+
 /**
  * Modelo de anuncio.
  */
@@ -13,4 +19,5 @@ export interface Announcement {
   category: Exclude<Category, "all">;
   tags: string[];
   dateLabel: string;
+  achievements: Achievement[];
 }
